@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source ../../local.config
+. ../../local.config
 
 #current workdir
 cwd=${PWD}

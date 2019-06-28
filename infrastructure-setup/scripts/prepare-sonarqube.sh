@@ -3,7 +3,7 @@
 export PATH=$PATH:/usr/local/bin/
 BASE_DIR=${OPENDEVSTACK_BASE_DIR:-"/ods"}
 
-source ${BASE_DIR}/local.env.config
+. ${BASE_DIR}/local.env.config
 
 cwd=${pwd}
 

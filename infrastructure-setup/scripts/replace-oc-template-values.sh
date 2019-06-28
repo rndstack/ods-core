@@ -6,7 +6,7 @@ cwd=${PWD}
 
 cd $base_dir
 
-source local.env.config
+. local.env.config
 
 echo -e "Replace OKD cluster IP, set to $cluster_ip \n"
 find . -iname "*.env" -exec sed -i "s|192.168.99.100|$cluster_ip|g" {} \;

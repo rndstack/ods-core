@@ -5,7 +5,7 @@
 # This includes everything before the project / repo part, this means everything before "/opendevstack/..."
 #
 
-source ../../../local.config
+. ../../../local.config
 
 cwd=${PWD}
 
