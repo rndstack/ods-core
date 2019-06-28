@@ -1,3 +1,17 @@
+mkdir -p /storage/data/opendevstack/ods/
+
+cd /storage/data/opendevstack/ods/
+sudo chown user.user /storage/data/opendevstack/
+
+
+sudo rm -rf  ods-configuration 
+sudo rm -rf  loca*
+cd ods-core
+
+find . -type f -name "*.sh" -exec chmod a+x {} \;
+
+
+
 # ODS core & infrastructure
 
 ## Introduction
