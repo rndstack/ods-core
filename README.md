@@ -4,6 +4,10 @@ cd /storage/data/opendevstack/ods/
 sudo chown user.user /storage/data/opendevstack/
 
 sudo rm -rf  ods-configuration 
+sudo rm -rf  ods-configuration-sample
+sudo rm -rf  ods-jenkins-shared-library
+sudo rm -rf  ods-project-quickstarters
+sudo rm -rf  ods-provisioning-app
 sudo rm -rf  loca*
 cd ods-core
 
