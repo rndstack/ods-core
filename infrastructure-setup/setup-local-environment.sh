@@ -112,7 +112,7 @@ cd ${cwd}
 
 echo "Before proceeding with the installation in script ${cwd}/prepare-local-environment.sh , ensure your atlassian tools will be configured properly and the CD user has been set up"
 echo "Atlassian tool addresses: "
-echo "Crowd: http://192.168.56.31:8095/"
-echo "Jira: http://192.168.56.31:8080/"
-echo "Confluence: http://192.168.56.31:8090/"
-echo "Bitbucket: http://192.168.56.31:7990/"
+echo "Crowd: http://192.168.1.4:8095/"
+echo "Jira: http://192.168.1.4:8080/"
+echo "Confluence: http://192.168.1.4:8090/"
+echo "Bitbucket: http://192.168.1.4:7990/"

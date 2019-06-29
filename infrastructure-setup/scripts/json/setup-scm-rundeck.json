@@ -1,7 +1,7 @@
 {
   "config": {
     "pathTemplate":"rundeck-jobs${job.group}${job.name}.${config.format}",
-    "url":"ssh://git@192.168.56.31:7999/opendevstack/ods-project-quickstarters.git",
+    "url":"ssh://git@192.168.1.4:7999/opendevstack/ods-project-quickstarters.git",
     "dir":"/var/rundeck/projects/Quickstarters/scm",
     "branch":"production",
     "strictHostKeyChecking":"no",

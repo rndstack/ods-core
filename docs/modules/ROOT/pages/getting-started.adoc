@@ -142,7 +142,7 @@ To fix this you can modify the ansible.cfg file in /etc/ansible and change the r
 
 ===== Run Configuration Wizard
 
-Access http://192.168.56.31:8095/crowd/console
+Access http://192.168.1.4:8095/crowd/console
 
 Be patient. First time accessing this page will take some time.
 
@@ -183,7 +183,7 @@ Choose the *JDBC Connection* option and configure the database with the followin
 
 ====== Step 4: Options
 
-Choose a deployment title, e.g. _OpenDevStack_ and set the *Base URL* to `+http://192.168.56.31:8095/crowd+`
+Choose a deployment title, e.g. _OpenDevStack_ and set the *Base URL* to `+http://192.168.1.4:8095/crowd+`
 
 ====== Step 5: Mail configuration
 
@@ -252,7 +252,7 @@ You also have to add the groups from the atlassian tools, even if you don't use 
 | Confluence user group
 |===
 
-To do so, access the crowd console at http://192.168.56.31:8095/crowd/console/
+To do so, access the crowd console at http://192.168.1.4:8095/crowd/console/
 Choose the *Groups* menu point and click *Add group*
 Enter the group name like shown above and link it to the created internal directory.
 
@@ -265,7 +265,7 @@ Click *Add groups*, search for all by leaving the Search fields empty and add al
 ====== Add applications to crowd
 
 You will have to add the applications you want to access with your Crowd credentials in the Crowd console.
-Access the Crowd console at http://192.168.56.31:8095/crowd/console/
+Access the Crowd console at http://192.168.1.4:8095/crowd/console/
 Choose the *Applications* menu point and click *Add application*
 In the following wizard enter the data for the application you want to add. See the data for the applications in the test environment in the table below.
 
@@ -275,8 +275,8 @@ In the following wizard enter the data for the application you want to add. See 
 | Jira
 | jira
 | jira
-| http://192.168.56.31:8080
-| 192.168.56.31
+| http://192.168.1.4:8080
+| 192.168.1.4
 | Internal directory with OpenDevStack groups
 | all users
 | 0.0.0.0/0
@@ -284,8 +284,8 @@ In the following wizard enter the data for the application you want to add. See 
 | Confluence
 | confluence
 | confluence
-| http://192.168.56.31:8090
-| 192.168.56.31
+| http://192.168.1.4:8090
+| 192.168.1.4
 | Internal directory with OpenDevStack groups
 | all users
 | 0.0.0.0/0
@@ -293,8 +293,8 @@ In the following wizard enter the data for the application you want to add. See 
 | Bitbucket Server
 | bitbucket
 | bitbucket
-| http://192.168.56.31:7990
-| 192.168.56.31
+| http://192.168.1.4:7990
+| 192.168.1.4
 | Internal directory with OpenDevStack groups
 | all users
 | 0.0.0.0/0
@@ -302,8 +302,8 @@ In the following wizard enter the data for the application you want to add. See 
 | Generic application
 | rundeck
 | secret
-| http://192.168.56.31:4440/rundeck
-| 192.168.56.31
+| http://192.168.1.4:4440/rundeck
+| 192.168.1.4
 | Internal directory with OpenDevStack groups
 | all users
 | 0.0.0.0/0
@@ -329,7 +329,7 @@ ansible-playbook -v -i inventories/dev playbooks/bitbucket.yml --ask-vault
 
 ===== Run Configuration Wizard
 
-Access http://192.168.56.31:7990
+Access http://192.168.1.4:7990
 
 Be patient. First time accessing this page takes some time.
 
@@ -340,10 +340,10 @@ Don't integrate Bitbucket with Jira at this point, but proceed with going to Bit
 
 ===== Configure Crowd access
 
-Go to the Bitbucket start page at http://192.168.56.31:7990/
+Go to the Bitbucket start page at http://192.168.1.4:7990/
 Open the administration settings and navigate to the *User directories* menu.
 Here you have to add a directory of type _Atlassian Crowd_.
-Here you have to add the Crowd server URL `+http://192.168.56.31:8095/crowd+`
+Here you have to add the Crowd server URL `+http://192.168.1.4:8095/crowd+`
 You also have to add the application name and the password you have defined for Bitbucket in crowd.
 For the local test environment this is `bitbucket` `bitbucket`
 Now activate *nested groups* and deactivate the *incremental synchronization*
@@ -387,7 +387,7 @@ ansible-playbook -v -i inventories/dev playbooks/jira.yml --ask-vault
 
 ===== Run Configuration Wizard
 
-Access http://192.168.56.31:8080
+Access http://192.168.1.4:8080
 
 Be patient. First time accessing this page takes time.
 
@@ -422,7 +422,7 @@ To enter the administration, you have to verify you have admin rights with the p
 Click the *User Directories* entry at the left..
 Now choose *Add Directory*.
 Here you have to add a directory of type _Atlassian Crowd_.
-Here you have to add the Crowd server URL `+http://192.168.56.31:8095/crowd+`
+Here you have to add the Crowd server URL `+http://192.168.1.4:8095/crowd+`
 You also have to add the application name and the password you have defined for Jira in crowd.
 For the local test environment this is `jira` `jira`
 Now activate *nested groups* and deactivate the *incremental synchronization*
@@ -454,7 +454,7 @@ ansible-playbook -v -i inventories/dev playbooks/confluence.yml --ask-vault
 
 ===== Run Configuration Wizard
 
-Access http://192.168.56.31:8090
+Access http://192.168.1.4:8090
 
 ====== Step 1: Set up Confluence
 
@@ -515,7 +515,7 @@ To enter the administration, you have to verify you have admin rights with the p
 Click the *User Directories* entry at the left in the *USERS & SECURITY* section.
 Now choose *Add Directory*.
 Here you have to add a directory of type _Atlassian Crowd_.
-Here you have to add the Crowd server URL `+http://192.168.56.31:8095/crowd+`
+Here you have to add the Crowd server URL `+http://192.168.1.4:8095/crowd+`
 You also have to add the application name and the password you have defined for Confluence in crowd.
 For the local test environment this is `confluence` `confluence`
 Now activate *nested groups* and deactivate the *incremental synchronization*
@@ -587,7 +587,7 @@ This is a yaml file, looking structurally like this Example
 
 [source,yaml]
 ----
-rundeck_bitbucket_host_external: 192.168.56.31
+rundeck_bitbucket_host_external: 192.168.1.4
 rundeck_bitbucket_host_internal: localhost
 rundeck_bitbucket_port: 7999
 rundeck_cduser_name: cd_user
@@ -618,7 +618,7 @@ ansible-playbook -v -i inventories/dev playbooks/rundeck.yml -e "@/home/vagrant/
 You can change `host` and `cduser` according to your environment.
 // TODO
 // This is superfluous if we mirror the repos first to our vagrant / local bitbucket server.
-After the playbook has been finished Rundeck is accessible via http://192.168.56.31:4440/rundeck
+After the playbook has been finished Rundeck is accessible via http://192.168.1.4:4440/rundeck
 
 === Configure Minishift
 
@@ -779,7 +779,7 @@ On the atlassian1 server clone the `ods-project-quickstarters` from your Bitbuck
 [source,shell]
 ----
 sudo su - rundeck
-git clone http://192.168.56.31:7990/scm/opendevstack/ods-project-quickstarters.git
+git clone http://192.168.1.4:7990/scm/opendevstack/ods-project-quickstarters.git
 git config --global user.email "cd_user@opendevstack.local"
 git config --global user.name "cd_user"
 cat /tmp/minishift.crt >> ods-project-quickstarters/ocp-templates/root.ca/ca-bundle.crt
@@ -798,13 +798,13 @@ Copy the entire directory structure from `ods-configuration-sample` into ``ods-c
 
 [source,shell]
 ----
-git clone http://192.168.56.31:7990/scm/opendevstack/ods-configuration-sample.git
-git clone http://192.168.56.31:7990/scm/opendevstack/ods-configuration.git
+git clone http://192.168.1.4:7990/scm/opendevstack/ods-configuration-sample.git
+git clone http://192.168.1.4:7990/scm/opendevstack/ods-configuration.git
 cp -r ./ods-configuration-sample/. ./ods-configuration
 find ods-configuration -name '*.sample' -type f | while read NAME ; do mv "${NAME}" "${NAME%.sample}" ; done
 ----
 
-(Assuming your host/ip for bitbucket is: 192.168.56.31:7990)
+(Assuming your host/ip for bitbucket is: 192.168.1.4:7990)
 
 Now you will have to check the `.env` configuration files in `ods-configuration`. Change all values with the suffix `_base64` to a Base64 encoded value.
 
@@ -1084,7 +1084,7 @@ Repeat for every project type you require.
 === Configure CD user
 
 The continuous delivery process requires a dedicated system user in crowd for accessing bitbucket.
-Access the http://192.168.56.31:8095/crowd/console/[crowd console] and choose *Add user* in the *Users* menu.
+Access the http://192.168.1.4:8095/crowd/console/[crowd console] and choose *Add user* in the *Users* menu.
 Enter valid credentials. The only restriction here is, that the user has the username `cd_user` and that the user belongs to the internal crowd directory.
 After creating the user you have to add the following groups:
 
@@ -1097,7 +1097,7 @@ After creating the user you have to add the following groups:
 
 After you have created the user in crowd, you must add the public cd_user SSH key to the Bitbucket account.
 
-Open http://192.168.56.31:7990/[Bitbucket], login with your crowd administration user and go to the administration.
+Open http://192.168.1.4:7990/[Bitbucket], login with your crowd administration user and go to the administration.
 Here open the User section. If you can't see the CD user, you have to synchronize the Crowd directory in the *User directories* section.
 Click on the CD user. In the user details you have the possiblity to add a SSH key. Click on the tab and enter the _public key_ from the generated key pair.
 
@@ -1146,7 +1146,7 @@ The Docker registry preparation is needed for several quickstarters, e.g. be_spr
 === Prepare Rundeck and required Dockerfiles
 
 After configuring the Atlassian tools and Minishift, Rundeck has to be configured as well.
-Access http://192.168.56.31:4440/rundeck[Rundeck], login and open the configuration.
+Access http://192.168.1.4:4440/rundeck[Rundeck], login and open the configuration.
 
 ==== Create Quickstarters project
 
@@ -1203,9 +1203,9 @@ Go to the project page and then configure. Edit the configuration file (using th
 [source,INI]
 ----
 # bitbucket https host including url schema
-project.globals.bitbucket_host=https\://192.168.56.31
+project.globals.bitbucket_host=https\://192.168.1.4
 # bitbucket ssh host including url schema
-project.globals.bitbucket_sshhost=ssh://git@192.168.56.31:7999
+project.globals.bitbucket_sshhost=ssh://git@192.168.1.4:7999
 # openshift host including url scheme
 project.globals.openshift_apihost=https://192.168.99.100:8443
 # openshift host without url scheme - used to grab CA etc
