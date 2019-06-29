@@ -15,6 +15,21 @@ find . -type f -name "*.sh" -exec chmod a+x {} \;
 
 
 
+
+架构调整 
+
+从 
+atlassian 192.168.56.31
+opensift 192.168.56.101
+atlcon 192.168.56.110
+
+调整为
+
+atlassian  192.168.1.4
+opensift   192.168.1.5
+atlcon     192.168.1.6
+
+
 # ODS core & infrastructure
 
 ## Introduction
