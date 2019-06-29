@@ -30,8 +30,8 @@
     vars:
       additional_json:
         insecure-registries :
-          - "docker-registry-default.192.168.1.5.nip.io"
-          - "docker-registry-default.192.168.1.5.nip.io:443"
+          - "docker-registry-default.192.168.56.101.nip.io"
+          - "docker-registry-default.192.168.56.101.nip.io:443"
       target_path: /etc/docker/daemon.json
     become: True
     notify: restart docker service
