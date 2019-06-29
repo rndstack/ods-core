@@ -25,7 +25,7 @@ while [ "$STATUS_CODE" != "200" ]
 do
   sleep 5s
   echo -n "."
-  STATUS_CODE=$(curl --insecure -s -o /dev/null -w %{http_code} https://nexus-cd.192.168.56.101.nip.io/)
+  STATUS_CODE=$(curl --insecure -s -o /dev/null -w %{http_code} https://nexus-cd.192.168.1.5.nip.io/)
 done
 
 echo "Create Nexus resources"

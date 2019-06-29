@@ -9,7 +9,7 @@ ODS_BASE_DIR=`realpath ${ODS_DIR}`
 vault_password="opendevstack"
 
 #Openshift ClusterIp
-clusterIp="192.168.56.101"
+clusterIp="192.168.1.5"
 bitbucketHost="http://cd_user@192.168.1.4:7990/scm"
 
 #Openshift local default Docker registry IP

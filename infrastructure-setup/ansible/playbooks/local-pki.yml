@@ -9,12 +9,12 @@
           - "*.192.168.1.4.nip.io"
         altips:
         - 192.168.1.4
-      - cname: "192.168.56.101.nip.io"
+      - cname: "192.168.1.5.nip.io"
         include_localhost: True
         sans:
-          - "*.192.168.56.101.nip.io"
+          - "*.192.168.1.5.nip.io"
         altips:
-        - 192.168.56.101
+        - 192.168.1.5
     pki_ca:
       cname: ca.opendevstack.local
       sans: []
@@ -56,14 +56,14 @@
         cert_bundle:
           in_certs:
           - "/home/vagrant/pki/ca.pem"
-          - "/home/vagrant/pki/192.168.56.101.nip.io.pem"
-          out: "/etc/ssl/192.168.56.101.nip.io.pem"
+          - "/home/vagrant/pki/192.168.1.5.nip.io.pem"
+          out: "/etc/ssl/192.168.1.5.nip.io.pem"
           owner: root
           group: root
           mode: 0644
         key_map:
-          in: "~/pki/192.168.56.101.nip.io-key.pem"
-          out: "/etc/ssl/private/192.168.56.101.nip.io.key"
+          in: "~/pki/192.168.1.5.nip.io-key.pem"
+          out: "/etc/ssl/private/192.168.1.5.nip.io.key"
           owner: root
           group: root
           mode: 0644
