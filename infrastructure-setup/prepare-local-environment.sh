@@ -8,27 +8,27 @@ if [ ! -d "$OPENDEVSTACK_BASE_DIR/certs" ] ; then
   mkdir $OPENDEVSTACK_BASE_DIR/certs
 fi
 
-#Activate single sign on
-echo "Step 1/10: Enable Jira SSO"
-cd ${cwd}
-read -e -n1 -p "Enable Jira SSO with Crowd? [y,n] (default: y):" input
-input=${input:-"y"}
-if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -v -i inventories/dev playbooks/jira-enable-sso.yml"
-fi
+# #Activate single sign on
+# echo "Step 1/10: Enable Jira SSO"
+# cd ${cwd}
+# read -e -n1 -p "Enable Jira SSO with Crowd? [y,n] (default: y):" input
+# input=${input:-"y"}
+# if [[ $input == "Y" || $input == "y" ]]; then
+#   vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -v -i inventories/dev playbooks/jira-enable-sso.yml"
+# fi
 
 
-echo "Step 2/10: Enable Confluence SSO"
-cd ${cwd}
-read -e -n1 -p "Enable Confluence SSO with Crowd? [y,n] (default: y):" input
-input=${input:-"y"}
-if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -v -i inventories/dev playbooks/confluence-enable-sso.yml"
-fi
+# echo "Step 2/10: Enable Confluence SSO"
+# cd ${cwd}
+# read -e -n1 -p "Enable Confluence SSO with Crowd? [y,n] (default: y):" input
+# input=${input:-"y"}
+# if [[ $input == "Y" || $input == "y" ]]; then
+#   vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -v -i inventories/dev playbooks/confluence-enable-sso.yml"
+# fi
 
-echo "Step 3/10: Mirror repositories to ${TARGET_REPO_BASE}"
-cd ${cwd}/scripts
-./mirror-repositories-to-gitserver.sh
+# echo "Step 3/10: Mirror repositories to ${TARGET_REPO_BASE}"
+# cd ${cwd}/scripts
+# ./mirror-repositories-to-gitserver.sh
 
 echo "Step 4/10: Connect to openshift VM and prepare OpenShift cluster"
 read -e -n1 -p "Configure OpenShift Cluster? [y,n] (default: y):" input
