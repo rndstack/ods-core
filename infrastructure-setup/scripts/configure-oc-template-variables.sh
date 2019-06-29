@@ -10,7 +10,7 @@ vault_password="opendevstack"
 
 #Openshift ClusterIp
 clusterIp="192.168.1.5"
-bitbucketHost="http://cd_user@192.168.1.4:7990/scm"
+bitbucketHost="http://cd_user@192.168.56.31:7990/scm"
 
 #Openshift local default Docker registry IP
 docker_registry_ip=172.30.1.1:5000

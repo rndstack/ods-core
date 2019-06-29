@@ -1,4 +1,4 @@
-postgresql_host: 192.168.1.4
+postgresql_host: 192.168.56.31
 postgresql_port: 5432
 postgresql_root_login_user: db_root
 

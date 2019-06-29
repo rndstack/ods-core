@@ -15,6 +15,20 @@ find . -type f -name "*.sh" -exec chmod a+x {} \;
 
 
 
+虚拟机存储位置调整
+当前用户下设置此属性
+vboxmanage setproperty machinefolder  /storage/data/virtualbox/user
+
+压缩(不生效)
+VBoxManage list hdds
+VBoxManage modifymedium disk "/storage/data/virtualbox/user/opendevstack/centos-7.6-x86_64-disk001.vmdk" --compact
+
+VBoxManage modifymedium disk "/home/user/VirtualBox VMs/opendevstack/atlcon/centos-7.6-x86_64-disk001.vmdk" --compact
+
+迁移vm
+VBoxManage export atlassian --output atlassian.ova
+VBoxManage import atlassian/atlassian.ova
+
 
 架构调整 
 

@@ -7,7 +7,7 @@
 . ../../local.config
 
 BASE_DIR=${OPENDEVSTACK_DIR:-"/tmp"}
-TARGET_REPO_BASE=${REPO_TARGET_BASE:-"http://192.168.1.4:7990/scm/"}
+TARGET_REPO_BASE=${REPO_TARGET_BASE:-"http://192.168.56.31:7990/scm/"}
 cwd=${PWD}
 
 if [ ! -d "$BASE_DIR" ] ; then

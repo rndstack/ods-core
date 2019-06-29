@@ -2,7 +2,7 @@
 # Prepare rundeck JVM
 export PATH=$PATH:/usr/local/bin/
 
-RUNDECK_URL="http://192.168.1.4:4440"
+RUNDECK_URL="http://192.168.56.31:4440"
 RUNDECK_USER="opendevstack.admin"
 RUNDECK_PW="admin"
 
