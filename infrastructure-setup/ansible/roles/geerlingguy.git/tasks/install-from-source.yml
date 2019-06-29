@@ -16,8 +16,21 @@
       - "git2u-all"
     state: present
   become: yes
-  notify:
-    - start git
+  # notify:
+  #   - start git
+  tags:
+    - git
+    - install
+    - packages
+
+- name: Redhat | yum remove git
+  yum:
+    name: 
+      - "git"
+    state: absent
+  become: yes
+  # notify:
+  #   - start git
   tags:
     - git
     - install
