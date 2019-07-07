@@ -61,6 +61,12 @@ ssh-keygen -y -f /storage/data/rndstack/ods-core/infrastructure-setup/.vagrant/m
 vi ~/.ssh/authorized_keys
 #paste进来 
 
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub 192.168.56.31;
+
+
+
+
 #即可以使用ssh 的方式带私钥自动登入
 vagrant ssh atlassian
 
