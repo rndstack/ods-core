@@ -64,21 +64,21 @@ echo "Step 8/10: Prepare Jenkins Builds"
 read -e -n1 -p "Prepare basic Jenkins Builds? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-jenkins-builds.sh"
+  vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-jenkins-builds.sh"
 fi
 
 echo "Step 9/11: Prepare Jenkins Slave Builds"
 read -e -n1 -p "Do you want to build all Jenkins slaves? This will take some time. [y,n] (default: n):" input
 input=${input:-"n"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-jenkins-slave-builds.sh"
+  vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-jenkins-slave-builds.sh"
 fi
 
 echo "Step 10/11: Prepare Provisioning App"
 read -e -n1 -p "Prepare Provisioning App? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-provisioning-app.sh"
+  vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-provisioning-app.sh"
 fi
 
 
@@ -86,6 +86,6 @@ echo "Step 11/11: Prepare Rundeck"
 read -e -n1 -p "Prepare Rundeck? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh atlassian -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-rundeck.sh"
+  vagrant ssh atlassian -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-rundeck.sh"
 fi
 
