@@ -66,13 +66,13 @@ input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
   vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -vvv -i inventories/dev dev.yml"
 else
-#   echo "Prepare hosts"
-#   vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -vvv -i inventories/dev playbooks/prepare-environment.yml"
-#   read -e -n1 -p "Install database and create schemas? [y,n] (default: y):" input
-#   input=${input:-"y"}
-#   if [[ $input == "Y" || $input == "y" ]]; then
-#      vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -vvv -i inventories/dev playbooks/install-database.yml"
-#   fi
+  echo "Prepare hosts"
+  vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -vvv -i inventories/dev playbooks/prepare-environment.yml"
+  read -e -n1 -p "Install database and create schemas? [y,n] (default: y):" input
+  # input=${input:-"y"}
+  # if [[ $input == "Y" || $input == "y" ]]; then
+  #    vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -vvv -i inventories/dev playbooks/install-database.yml"
+  # fi
 #   echo "Install Atlassian tools"
 #   read -e -n1 -p "Install Atlassian Crowd? [y,n] (default: y):" input
 #   input=${input:-"y"}
