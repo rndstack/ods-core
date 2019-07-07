@@ -34,7 +34,7 @@ echo "Step 4/10: Connect to openshift VM and prepare OpenShift cluster"
 read -e -n1 -p "Configure OpenShift Cluster? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-openshift-cluster.sh"
+  vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-openshift-cluster.sh"
 fi
 
 sleep 5s
@@ -43,14 +43,14 @@ echo "Step 5/10: Add OpenShift certificate to atlassian VM"
 read -e -n1 -p "Configure OpenShift certificates? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh atlassian -c "sudo /ods/ods-core/infrastructure-setup/scripts/import-certificate-to-atlassian-jvm.sh"
+  vagrant ssh atlassian -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/import-certificate-to-atlassian-jvm.sh"
 fi
 
 echo "Step 6/10: Prepare Nexus"
 read -e -n1 -p "Prepare Nexus? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-nexus.sh"
+  vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-nexus.sh"
 fi
 
 echo "Step 7/10: Prepare Sonarqube"
