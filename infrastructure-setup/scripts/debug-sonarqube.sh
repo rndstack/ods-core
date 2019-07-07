@@ -16,3 +16,17 @@ oc login -u system:admin
 oc project cd
 cd /ods/ods-core/sonarqube/ocp-config
 oc get pods 
+oc logs jenkins-master-1-build
+oc logs jenkins-master-2-build
+oc logs jenkins-slave-base-1-build
+oc logs jenkins-webhook-proxy-1-build
+
+
+oc logs sonarqube-1-build
+oc logs sonarqube-2-build 
+oc logs sonarqube-3-build 
+oc logs sonarqube-4-build 
+oc logs sonarqube-postgresql-1-deploy
+
+
+
