@@ -17,7 +17,9 @@ oc project cd
 cd /ods/ods-core/sonarqube/ocp-config
 oc get pods 
 
-docker logs docker-build
+oc describe build docker-build
+
+# docker logs docker-build
 
 
 oc logs jenkins-master-1-build
