@@ -1,3 +1,11 @@
+
+ansible proxy
+
+      environment:
+        http_proxy: http://192.168.196.221:1087
+        https_proxy: http://192.168.196.221:1087
+        
+
 mkdir -p /storage/data/opendevstack/ods/
 
 cd /storage/data/opendevstack/ods/
@@ -27,7 +35,62 @@ VBoxManage modifymedium disk "/home/user/VirtualBox VMs/opendevstack/atlcon/cent
 
 迁移vm
 VBoxManage export atlassian --output atlassian.ova
-VBoxManage import atlassian/atlassian.ova
+VBoxManage import atlassian.ova
+
+
+VBoxManage export win2012_wf_installed_221_1057 --output win2012_wf_installed_221_1057.ova
+VBoxManage import win2012_wf_installed_221_1057.ova
+
+
+vagrant package --base=win2012_wf_installed_221_1057 --output=win2012_wf_installed_221_1057.box
+
+vagrant box add win2012.box --name=win2012_wf_installed_221_1057
+
+
+vagrant package --base=atlassian --output=atlassian.box
+
+vagrant box add /storage/data/virtualbox/user/atlassian.box --name=atlassian_initialized
+
+vagrant init atlassian_initialized atlassian
+
+#迁移完成后之前的private_key无法自动登入 https://blog.pythian.com/vagrant-re-packaging-ssh/
+# 在host机里面执行, 查看当前的 public key
+ssh-keygen -y -f /storage/data/rndstack/ods-core/infrastructure-setup/.vagrant/machines/atlassian/virtualbox/private_key
+
+# 在guest机里面执行 
+vi ~/.ssh/authorized_keys
+#paste进来 
+
+#即可以使用ssh 的方式带私钥自动登入
+vagrant ssh atlassian
+
+
+# 使用ssh密码登录
+     #machine_config.ssh.username = "vagrant"
+     #machine_config.ssh.password = "vagrant"
+     #machine_config.ssh.insert_key = true
+
+
+
+curl -vvv --insecure   https://sonarqube-cd.192.168.56.101.nip.io/
+curl -vvv --insecure   http://192.168.56.31:4440/
+
+
+
+VBoxManage unregistervm --delete "atlassian"
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "win2012_wf_installed_221_1057"
+  config.vm.network "forwarded_port", guest: 3389, host: 4389
+  config.vm.network "public_network", ip: "192.168.2.43"
+  config.vm.provider "virtualbox" do |vb|
+    vb.name = "win2012_wf_installed_221_1057"
+    vb.gui = true
+    vb.memory = "6144"
+  end
+end
+
 
 
 架构调整 
