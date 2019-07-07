@@ -24,10 +24,10 @@ while [ "$STATUS_CODE" != "200" ]
 do
   sleep 5s
   echo -n "."
-  STATUS_CODE=$(curl --insecure -s -o /dev/null -w %{http_code} https://sonarqube-cd.192.168.196.221.nip.io/)
+  STATUS_CODE=$(curl --insecure -s -o /dev/null -w %{http_code} https://sonarqube-cd.192.168.56.101.nip.io/)
 done
 
-echo -e "\nGo to https://sonarqube-cd.192.168.196.221.nip.io and log in with your crowd credentials."
+echo -e "\nGo to https://sonarqube-cd.192.168.56.101.nip.io and log in with your crowd credentials."
 echo "Generate a token in your Profile > Security Settings and proceed"
 SONAR_TOKEN_INPUT=""
 read -e -p "Enter your Sonar Auth Token and press [ENTER]: " input

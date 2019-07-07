@@ -16,6 +16,8 @@ oc login -u system:admin
 oc project cd
 cd /ods/ods-core/sonarqube/ocp-config
 oc get pods 
+oc get pods --all-namespaces
+oc logs build/sonarqube-1
 
 # oc describe build docker-build
 # docker logs docker-build
