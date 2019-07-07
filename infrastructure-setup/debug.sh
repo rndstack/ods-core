@@ -8,4 +8,4 @@ if [ ! -d "$OPENDEVSTACK_BASE_DIR/certs" ] ; then
   mkdir $OPENDEVSTACK_BASE_DIR/certs
 fi
 
-vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/debug-sonarqube.sh"
+vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/debug-sonarqube.sh"
