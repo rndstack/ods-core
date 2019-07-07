@@ -19,9 +19,14 @@ oc get pods
 
 # oc describe build docker-build
 # docker logs docker-build
+echo "oc describe pod jenkins-master-1-build"
 oc describe pod jenkins-master-1-build
+
+echo "oc logs jenkins-master-1-build -c git-clone"
 oc logs jenkins-master-1-build -c git-clone
-# oc start-build --from-archive=docker-build.tar --loglevel=10 forum-s2i --follow
+
+echo "oc start-build from archive"
+oc start-build --from-archive=docker-build.tar --loglevel=10 forum-s2i --follow
 
 
 
