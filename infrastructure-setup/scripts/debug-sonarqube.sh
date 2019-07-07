@@ -16,6 +16,10 @@ oc login -u system:admin
 oc project cd
 cd /ods/ods-core/sonarqube/ocp-config
 oc get pods 
+
+oc logs docker-build
+
+
 oc logs jenkins-master-1-build
 oc logs jenkins-master-2-build
 oc logs jenkins-slave-base-1-build
