@@ -22,6 +22,9 @@ oc logs jenkins-slave-base-1-build
 oc logs jenkins-webhook-proxy-1-build
 
 
+oc logs nexus3-1-mxncx 
+
+
 oc logs sonarqube-1-build
 oc logs sonarqube-2-build 
 oc logs sonarqube-3-build 
