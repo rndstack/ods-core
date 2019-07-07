@@ -24,7 +24,9 @@ oc describe pod jenkins-master-1-build
 
 echo "oc logs jenkins-master-1-build -c git-clone"
 oc logs jenkins-master-1-build -c git-clone
+oc logs sonarqube-postgresql-1-deploy -c git-clone
 
+oc describe pod sonarqube-postgresql-1-deploy
 echo "oc start-build from archive"
 oc start-build --from-archive=docker-build.tar --loglevel=10 forum-s2i --follow
 
