@@ -57,7 +57,7 @@ echo "Step 7/10: Prepare Sonarqube"
 read -e -n1 -p "Prepare Sonarqube? [y,n] (default: y):" input
 input=${input:-"y"}
 if [[ $input == "Y" || $input == "y" ]]; then
-  vagrant ssh openshift -c "sudo /ods/ods-core/infrastructure-setup/scripts/prepare-sonarqube.sh"
+  vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-sonarqube.sh"
 fi
 
 echo "Step 8/10: Prepare Jenkins Builds"
