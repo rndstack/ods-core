@@ -26,9 +26,9 @@ fi
 #   vagrant ssh atlcon -c "cd /vagrant/ansible/ && export ANSIBLE_VAULT_PASSWORD_FILE=/vagrant/ansible/.vault_pass.txt && ansible-playbook -v -i inventories/dev playbooks/confluence-enable-sso.yml"
 # fi
 
-# echo "Step 3/10: Mirror repositories to ${TARGET_REPO_BASE}"
-# cd ${cwd}/scripts
-# ./mirror-repositories-to-gitserver.sh
+echo "Step 3/10: Mirror repositories to ${TARGET_REPO_BASE}"
+cd ${cwd}/scripts
+./mirror-repositories-to-gitserver.sh
 
 echo "Step 4/10: Connect to openshift VM and prepare OpenShift cluster"
 read -e -n1 -p "Configure OpenShift Cluster? [y,n] (default: y):" input
