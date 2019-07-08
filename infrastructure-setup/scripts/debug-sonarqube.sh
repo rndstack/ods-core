@@ -33,8 +33,10 @@ systemctl restart docker
 
 
 
-# 由于迁移过来的git 配置还有些问题, 导致无法clone 源代码
+# 由于迁移过来的git 配置还有些问题, 导致无法clone源代码
 
+oc get pods --all-namespaces
+oc get all
 NAME                                               TYPE      FROM             STATUS                       STARTED             DURATION
 build.build.openshift.io/sonarqube-1               Docker    Git@production   Failed (FetchSourceFailed)   About an hour ago   2m2s
 build.build.openshift.io/sonarqube-2               Docker    Git@production   Failed (FetchSourceFailed)   About an hour ago   2s
@@ -44,6 +46,10 @@ build.build.openshift.io/jenkins-master-2          Docker    Git@production   Fa
 build.build.openshift.io/jenkins-slave-base-1      Docker    Git@production   Failed (FetchSourceFailed)   39 minutes ago      1s
 build.build.openshift.io/jenkins-webhook-proxy-1   Docker    Git@production   Failed (FetchSourceFailed)   39 minutes ago      2s
 
+# 执行流程中, 出现源码路径为以下, 需要改为真实可访问的路径
+
+SOURCE_REPOSITORY:    http://cd_user@192.168.56.31:7990/scm/opendevstack/ods-core.git
+SOURCE_URI:           http://cd_user@192.168.56.31:7990/scm/opendevstack/ods-core.git
 
 # 先配置好sso服务
 

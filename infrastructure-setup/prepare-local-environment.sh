@@ -37,7 +37,7 @@ if [[ $input == "Y" || $input == "y" ]]; then
   vagrant ssh openshift -c "sudo bash -x /ods/ods-core/infrastructure-setup/scripts/prepare-openshift-cluster.sh"
 fi
 
-sleep 5s
+# sleep 5s
 
 echo "Step 5/10: Add OpenShift certificate to atlassian VM"
 read -e -n1 -p "Configure OpenShift certificates? [y,n] (default: y):" input
